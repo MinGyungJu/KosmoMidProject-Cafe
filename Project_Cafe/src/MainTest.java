@@ -9,18 +9,20 @@ public class MainTest extends JFrame{
 	Panel_Food panel_food;
 	Panel_Snack panel_snack;
 	Panel_Drink panel_drink;
-	
+	JTabbedPane tab = new JTabbedPane();
+
 	MainTest(){
 		setTitle("PC방");
-		panel_main = new Panel_Main();
-		
+		panel_main = new Panel_Main(this);
+		panel_noodle = new Panel_Noodle();
+		panel_food = new Panel_Food();
+		panel_snack = new Panel_Snack();
+		panel_drink = new Panel_Drink();
 		
 	}
 	
 	void addLayout() {
-		
 
-		JTabbedPane tab = new JTabbedPane();
 		tab.addTab("main", panel_main);
 		tab.addTab("라면", panel_noodle);
 		tab.addTab("분식", panel_food);
