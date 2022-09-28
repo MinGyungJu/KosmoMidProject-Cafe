@@ -2,8 +2,8 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-public class Panel_Frappe extends JPanel{
-	public Panel_Frappe() {
+public class Panel_Noodle extends JPanel{
+	public Panel_Noodle() {
 		setBackground(Color.CYAN);
 	}
 }

@@ -4,16 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
 public class MainTest extends JFrame{
-	Panel_Main panel_Main; 
-	Panel_Ade panel_Ade;
-	Panel_Coffee panel_Coffee;
-	Panel_Frappe panel_Frappe;
-	Panel_Juice panel_Juice;
-	Panel_Latte panel_Latte;
-	Panel_Tea panel_Tea;
+	Panel_Main panel_main; 
+	Panel_Noodle panel_noodle;
+	Panel_Food panel_food;
+	Panel_Snack panel_snack;
+	Panel_Drink panel_drink;
 	
 	MainTest(){
-		setTitle("MidCafe");
+		setTitle("PC방");
 		
 		
 	}
@@ -22,16 +20,13 @@ public class MainTest extends JFrame{
 		
 
 		JTabbedPane tab = new JTabbedPane();
-		tab.addTab("main", panel_Main);
+		tab.addTab("main", panel_main);
 		
-		tab.addTab("Cofee", panel_Coffee);
-		tab.addTab("Latte", panel_Latte);
-		tab.addTab("Tea", panel_Tea);
-		tab.addTab("Ade", panel_Ade);
-		tab.addTab("Juice", panel_Juice);
-		tab.addTab("Frappe", panel_Frappe);
-		
-
+		tab.addTab("라면", panel_noodle);
+		tab.addTab("분식", panel_food);
+		tab.addTab("간식", panel_snack);
+		tab.addTab("음료", panel_drink);
+	
 		add(tab,BorderLayout.CENTER);
 		
 		setBounds(100, 100, 700, 900);
