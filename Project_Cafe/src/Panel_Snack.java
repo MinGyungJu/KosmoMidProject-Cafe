@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -9,21 +10,21 @@ import javax.swing.JTextField;
 
 public class Panel_Snack extends JPanel{
 	
-
-	
 	MainTest parent;
 	
-	JButton b1 = new JButton();
-	JButton b2 = new JButton();
-	JButton b3 = new JButton();
-	JButton b4 = new JButton();
-	JButton b5 = new JButton();
-	JButton b6 = new JButton();
-	JButton addbt = new JButton();
-	JButton delbt= new JButton();
-	JButton calbt = new JButton();
+	JButton b1 = new JButton("죠리뽕", new ImageIcon("src\\imgs\\1.png"));
+	JButton b2 = new JButton("칸츄리콘", new ImageIcon("src\\imgs\\2.png"));
+	JButton b3 = new JButton("치토스", new ImageIcon("src\\imgs\\3.png"));
+	JButton b4 = new JButton("썬칩", new ImageIcon("src\\imgs\\4.png"));
+	JButton b5 = new JButton("썬칩", new ImageIcon("src\\imgs\\5.png"));
+	JButton b6 = new JButton("허니버터칩", new ImageIcon("src\\imgs\\6.png"));
+	JButton addbt = new JButton("장바구니담기");
+	JButton delbt= new JButton("취소");
+	JButton calbt = new JButton("결제");
+	
 	JTextArea ta1 = new JTextArea();
 	JTextField tf1 = new JTextField();
+	
 	
 	public Panel_Snack(MainTest i) {
 		
@@ -43,7 +44,7 @@ public class Panel_Snack extends JPanel{
 		
 		setLayout(new BorderLayout());
 		JPanel pWest = new JPanel();
-			pWest.setLayout(new GridLayout(3,2,20,20));
+			pWest.setLayout(new GridLayout(3,2,10,10));
 			pWest.setPreferredSize(new java.awt.Dimension(550, 500));
 			pWest.add(b1);
 			pWest.add(b2);
@@ -53,6 +54,7 @@ public class Panel_Snack extends JPanel{
 			pWest.add(b6);
 			
 		add(pWest, BorderLayout.WEST);
+		
 		
 		JPanel pEast = new JPanel();
 			pEast.setLayout(new GridLayout(3, 1));
@@ -66,11 +68,24 @@ public class Panel_Snack extends JPanel{
 			add(pEast, BorderLayout.EAST);
 			
 			JPanel pSouth = new JPanel();
-			pSouth.add(delbt);
 			pSouth.add(calbt);
+			pSouth.add(delbt);
+			
 			add(pSouth, BorderLayout.SOUTH);
 		
-		
+			b1.setHorizontalAlignment(JButton.CENTER);
+			b1.setVerticalTextPosition(JButton.BOTTOM);
+			b2.setHorizontalAlignment(JButton.CENTER);
+			b2.setVerticalTextPosition(JButton.BOTTOM);
+			b3.setHorizontalAlignment(JButton.CENTER);
+			b3.setVerticalTextPosition(JButton.BOTTOM);
+			b4.setHorizontalAlignment(JButton.CENTER);
+			b4.setVerticalTextPosition(JButton.BOTTOM);
+			b5.setHorizontalAlignment(JButton.CENTER);
+			b5.setVerticalTextPosition(JButton.BOTTOM);
+			b6.setHorizontalAlignment(JButton.CENTER);
+			b6.setVerticalTextPosition(JButton.BOTTOM);
+			
 		
 		
 		
