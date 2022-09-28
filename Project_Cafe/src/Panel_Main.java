@@ -13,7 +13,7 @@ public class Panel_Main extends JPanel{
 	
 	public Panel_Main(MainTest mainTest) {
 		parent = mainTest;
-		setLayout(new GridLayout());
+		setLayout(new GridLayout(2,2));
 		//making buttons
 		String a[] = { "라면", "분식", "간식", "음료" };
 		for(int i =0; i <bMenu.length; i++) {
