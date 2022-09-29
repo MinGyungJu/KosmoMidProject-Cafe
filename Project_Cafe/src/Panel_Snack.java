@@ -21,7 +21,7 @@ public class Panel_Snack extends JPanel{
 	MainTest parent;
 	
 	JFrame f;
-	JButton b1,b2,b3,b4,b5,b6,delbt,calbt,addbt,sosbt;
+	JButton b1,b2,b3,b4,b5,b6,delbt,calbt,addbt,addbt2,sosbt;
 	JTextArea ta1, taJang;
 	JTextField tf1; 
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
@@ -33,10 +33,6 @@ public class Panel_Snack extends JPanel{
 	JLabel banner5 = new JLabel();
 	
 
-	
-	
-	
-	
 	
 	public Panel_Snack(MainTest mainTest) {
 		
@@ -53,6 +49,7 @@ public class Panel_Snack extends JPanel{
 		
 		
 		addbt = new JButton("장바구니담기");
+		addbt2 = new JButton("장바구니 취소");
 		sosbt = new JButton("직원호출");
 		delbt= new JButton("         취소 (alt+x)        ");
 		calbt = new JButton("              결제              ");
@@ -97,7 +94,7 @@ public class Panel_Snack extends JPanel{
 		setLayout(new BorderLayout());
 		JPanel pWest = new JPanel();
 		
-			pWest.setLayout(new GridLayout(3,2));
+			pWest.setLayout(new GridLayout(3,2,10,10));
 			pWest.setPreferredSize(new java.awt.Dimension(500, 600));
 			pWest.add(b1);
 			pWest.add(b2);
@@ -129,6 +126,8 @@ public class Panel_Snack extends JPanel{
 			pEast2.add(banner1); // 이벤트 배너 삽입
 			pEast2.add(ta1); // 주문내역 출력
 			pEast2.add(addbt); // 장바구니 담기
+			
+			pEast2.add(addbt2); // 장바구니 담기
 			pEast2.add(taJang); // 주문내역 출력
 			pEast.add(pEast1);
 			pEast.add(pEast2);
@@ -153,37 +152,55 @@ public class Panel_Snack extends JPanel{
 		b1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta1.append("죠리퐁 3000");
+				if (ta1.getText().equals(""))
+					ta1.append("죠리퐁 3000");
+				else 
+					ta1.setText("죠리퐁 3000");
 			}// actionPerformed
 		});// addActionListener
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta1.append("칸츄리콘 2500");
+				if (ta1.getText().equals(""))
+					ta1.append("칸츄리콘 2500");
+				else 
+					ta1.setText("칸츄리콘 2500");
 			}// actionPerformed
 		});// addActionListener
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta1.append("치토스 2500");
+				if (ta1.getText().equals(""))
+					ta1.append("치토스 2500");
+				else 
+					ta1.setText("치토스 2500");
 			}// actionPerformed
 		});// addActionListener
 		b4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta1.append("썬칩 3000");
+				if (ta1.getText().equals(""))
+					ta1.append("썬칩 3000");
+				else 
+					ta1.setText("썬칩 3300");
 			}// actionPerformed
 		});// addActionListener
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta1.append("카스타드 4000");
+				if (ta1.getText().equals(""))
+					ta1.append("카스타드 4000");
+				else 
+					ta1.setText("카스타드 4000");
 			}// actionPerformed
 		});// addActionListener
 		b6.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta1.append("허니버터칩 3500");
+				if (ta1.getText().equals(""))
+					ta1.append("허니버터칩 3000");
+				else 
+					ta1.setText("허니버터칩 3000");
 			}// actionPerformed
 		});// addActionListener
 		addbt.addActionListener(new ActionListener() {
@@ -192,6 +209,12 @@ public class Panel_Snack extends JPanel{
 				inputData();
 			}// actionPerformed
 		});// addActionListenerAddbt
+		addbt2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				deleteData();
+			}// actionPerformed
+		});// addActionListenerAddbt2
 		calbt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -222,6 +245,26 @@ public class Panel_Snack extends JPanel{
 		ta1.setText("");
 		taJang.append(v.toString());
 	}//input data
+	
+	void deleteData() {
+		String a = ta1.getText();
+		if(a.equals("")) {
+			JOptionPane.showMessageDialog(null, "취소할 주문이 없습니다.");
+			return;
+		}//if
+		String[] b = a.split(" ");
+
+		for (EdibleVo vo : list)
+			if (b[0].equals(vo.getName())) {
+				list.remove(vo);
+				break;
+			}//if
+
+		ta1.setText("");
+		taJang.setText("");
+		for (EdibleVo vo : list)
+			taJang.append(vo.toString());
+	}
 	
 	void pay() {
 		int total = 0;
