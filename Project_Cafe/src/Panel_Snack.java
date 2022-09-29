@@ -139,21 +139,8 @@ public class Panel_Snack extends JPanel{
 				    	parent.ta.setText(String.valueOf(parent.ta.getText().equals("")));
 				} else {
 				    JOptionPane.showMessageDialog(null, "취소되었습니다.");
-				    
 				}
 
-				
-				//int reply = JOptionPane.showConfirmDialog(null, "결제하시겠습니까?","결제창", JOptionPane.YES_NO_OPTION);
-				//if (reply == JOptionPane.YES_OPTION) {
-				//	pay();
-				//    	ta1.setText(String.valueOf(ta1.getText().equals("")));
-				//} else {
-				//    JOptionPane.showMessageDialog(null, "취소되었습니다.");
-				//    System.exit(0);
-				//}
-				
-				
-				
 			}// actionPerformed
 		});// addActionListenerbpay
 		delbt.addActionListener(new ActionListener() {
