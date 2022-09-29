@@ -17,7 +17,7 @@ public class Panel_Drink extends JPanel {
 	JButton bnd1, bnd2, bnd3, bnd4, bnd5, bnd6, bcan, bpay, addbt, sosbt;
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 
-	JLabel banner1 = new JLabel();
+	JLabel banner1 = new JLabel("요청사항을 쓴 후에 호출버튼을 누르세요. 장바구니에는 하나씩만 담으세요");
 	JLabel banner2 = new JLabel();
 	JLabel banner3 = new JLabel();
 	JLabel banner4 = new JLabel();
@@ -35,13 +35,13 @@ public class Panel_Drink extends JPanel {
 		taJang.setPreferredSize(new Dimension(250,200));
 		// 메뉴 관련버튼 (이미지 경로)
 		bnd1 = new JButton("커피:3500원", new ImageIcon("src\\imgs\\1.PNG"));
-		bnd2 = new JButton("녹차", new ImageIcon("src\\imgs\\2.PNG"));
-		bnd3 = new JButton("홍차", new ImageIcon("src\\imgs\\3.PNG"));
-		bnd4 = new JButton("오렌지주스", new ImageIcon("src\\imgs\\4.PNG"));
-		bnd5 = new JButton("자몽에이드", new ImageIcon("src\\imgs\\5.PNG"));
-		bnd6 = new JButton("얼그레이", new ImageIcon("src\\imgs\\6.PNG"));
+		bnd2 = new JButton("녹차:3300원", new ImageIcon("src\\imgs\\2.PNG"));
+		bnd3 = new JButton("홍차:2500", new ImageIcon("src\\imgs\\3.PNG"));
+		bnd4 = new JButton("오렌지주스:3000", new ImageIcon("src\\imgs\\4.PNG"));
+		bnd5 = new JButton("자몽에이드:3500", new ImageIcon("src\\imgs\\5.PNG"));
+		bnd6 = new JButton("얼그레이:2500", new ImageIcon("src\\imgs\\6.PNG"));
 		// 주문 관련 버튼
-		bcan = new JButton("취소");
+		bcan = new JButton("모두 취소");
 		bpay = new JButton("결제");
 		addbt = new JButton("장바구니 담기");
 		sosbt = new JButton("직원호출");
@@ -79,6 +79,7 @@ public class Panel_Drink extends JPanel {
 		pEast.setPreferredSize(new java.awt.Dimension(300, 450));
 
 		JPanel pEast1 = new JPanel();
+
 		pEast1.add(tf); // 요청 사항 입력 후, 직원 호출을 눌러주세요
 		pEast1.add(sosbt); // 직원 호출
 		JPanel pEast2 = new JPanel();
@@ -111,31 +112,31 @@ public class Panel_Drink extends JPanel {
 		bnd2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "녹차 : 3500원");
+				ta.append("녹차 3300");
 			}// actionPerformed
 		});// addActionListener
 		bnd3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "홍차 : 3500원");
+				ta.append("홍차 2500");
 			}// actionPerformed
 		});// addActionListener
 		bnd4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "오렌지주스 : 3500원");
+				ta.append("오렌지주스 3000");
 			}// actionPerformed
 		});// addActionListener
 		bnd5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "자몽에이드 : 3500원");
+				ta.append("자몽에이드 3500");
 			}// actionPerformed
 		});// addActionListener
 		bnd6.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "얼그레이 : 3500원");
+				ta.append("얼그레이 2500");
 			}// actionPerformed
 		});// addActionListener
 		addbt.addActionListener(new ActionListener() {
@@ -149,8 +150,21 @@ public class Panel_Drink extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				pay();
 			}// actionPerformed
-		});// addActionListenerAddbt
-		
+		});// addActionListenerbpay
+		bcan.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cancelAll();
+			}// actionPerformed
+		});// addActionListenerbcan
+		sosbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String s= tf.getText();
+				JOptionPane.showMessageDialog(null,"용무 "+ s +"로 종업원 호출하였습니다. 기다리세요.");
+				tf.setText("");
+			}// actionPerformed
+		});// addActionListenersosbt
 	}// eventProc
 	void inputData() {
 		String a = ta.getText();
@@ -166,7 +180,14 @@ public class Panel_Drink extends JPanel {
 		for(EdibleVo v : list) {
 			total += v.getCost();
 		}//for
-		JOptionPane.showMessageDialog(null, "내실 총 금액은"+ total+" 입니다.");
+		JOptionPane.showMessageDialog(null, "내실 총 금액은 "+ total+" 원입니다.");
+		cancelAll();
+	}//pay
+	
+	void cancelAll() {
+		taJang.setText("");
+		ta.setText("");
+		list = new ArrayList<EdibleVo>();
 	}
 }// panel_drink
 //////////////////////////////////////////////////////////////////////////
