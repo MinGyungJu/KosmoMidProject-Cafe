@@ -17,7 +17,7 @@ public class Panel_Drink extends JPanel {
 	JButton bnd1, bnd2, bnd3, bnd4, bnd5, bnd6, bcan, bpay, addbt, sosbt;
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 
-	JLabel banner1 = new JLabel("요청사항을 쓴 후에 호출버튼을 누르세요. 장바구니에는 하나씩만 담으세요");
+	JLabel banner1 = new JLabel("요청 쓴후에 호출, 장바구니에는 하나씩만");
 	JLabel banner2 = new JLabel();
 	JLabel banner3 = new JLabel();
 	JLabel banner4 = new JLabel();

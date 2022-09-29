@@ -2,29 +2,37 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Panel_Snack extends JPanel{
 	
 	MainTest parent;
 	
 	JFrame f;
-	JButton b1,b2,b3,b4,b5,b6,addbt,sosbt,delbt,calbt;
+	JButton b1,b2,b3,b4,b5,b6,delbt,calbt,addbt,sosbt;
 	JTextArea ta1, taJang;
 	JTextField tf1; 
+	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 	
 	JLabel banner1 = new JLabel();
 	JLabel banner2 = new JLabel();
 	JLabel banner3 = new JLabel();
 	JLabel banner4 = new JLabel();
 	JLabel banner5 = new JLabel();
+	
+
 	
 	
 	
@@ -42,20 +50,42 @@ public class Panel_Snack extends JPanel{
 		tf1.setPreferredSize(new Dimension(250,200));
 		taJang.setPreferredSize(new Dimension(250,200));
 		
-		b1 = new JButton("죠리뽕", new ImageIcon("src\\imgs\\1.png"));
-		b2 = new JButton("칸츄리콘", new ImageIcon("src\\imgs\\2.png"));
-		b3 = new JButton("치토스", new ImageIcon("src\\imgs\\3.jpg"));
-		b4 = new JButton("썬칩", new ImageIcon("src\\imgs\\4.jpg"));
-		b5 = new JButton("썬칩", new ImageIcon("src\\imgs\\5.jpg"));
-		b6 = new JButton("허니버터칩", new ImageIcon("src\\imgs\\6.jpg"));
+		
 		
 		addbt = new JButton("장바구니담기");
 		sosbt = new JButton("직원호출");
 		delbt= new JButton("         취소 (alt+x)        ");
 		calbt = new JButton("              결제              ");
 		
+//		for(int i=0; i<)
+		
+		b1 = new JButton(new ImageIcon("src\\imgs\\s1.png"));
+		b2 = new JButton(new ImageIcon("src\\imgs\\s2.png"));
+		b3 = new JButton(new ImageIcon("src\\imgs\\s3.png"));
+		b4 = new JButton(new ImageIcon("src\\imgs\\s4.png"));
+		b5 = new JButton(new ImageIcon("src\\imgs\\s5.png"));
+		b6 = new JButton(new ImageIcon("src\\imgs\\s6.png"));
+		
+
+		
 		addLayout();
 		addProc();
+		
+		b1.setVerticalTextPosition(JButton.BOTTOM);
+		b1.setHorizontalAlignment(JButton.CENTER);
+		
+		b2.setHorizontalAlignment(JButton.CENTER);
+		b2.setVerticalTextPosition(JButton.BOTTOM);
+		b3.setHorizontalAlignment(JButton.CENTER);
+		b3.setVerticalTextPosition(JButton.BOTTOM);
+		b4.setHorizontalAlignment(JButton.CENTER);
+		b4.setVerticalTextPosition(JButton.BOTTOM);
+		b5.setHorizontalAlignment(JButton.CENTER);
+		b5.setVerticalTextPosition(JButton.BOTTOM);
+		b6.setHorizontalAlignment(JButton.CENTER);
+		b6.setVerticalTextPosition(JButton.BOTTOM);
+		
+		
 		
 //		setBackground(Color.CYAN);		
 
@@ -66,7 +96,8 @@ public class Panel_Snack extends JPanel{
 		
 		setLayout(new BorderLayout());
 		JPanel pWest = new JPanel();
-			pWest.setLayout(new GridLayout(3,2,10,10));
+		
+			pWest.setLayout(new GridLayout(3,2));
 			pWest.setPreferredSize(new java.awt.Dimension(500, 600));
 			pWest.add(b1);
 			pWest.add(b2);
@@ -75,7 +106,11 @@ public class Panel_Snack extends JPanel{
 			pWest.add(b5);
 			pWest.add(b6);
 			
+			
 		add(pWest, BorderLayout.WEST);
+		
+		
+		
 		// ----------------------------------
 		JPanel pNorth = new JPanel();
 		pNorth.setLayout(new GridLayout(1, 2));
@@ -107,24 +142,99 @@ public class Panel_Snack extends JPanel{
 			pSouth.add(calbt);
 			
 			add(pSouth, BorderLayout.SOUTH);
-		
-//			b1.setHorizontalAlignment(JButton.CENTER);
-//			b1.setVerticalTextPosition(JButton.BOTTOM);
-//			b2.setHorizontalAlignment(JButton.CENTER);
-//			b2.setVerticalTextPosition(JButton.BOTTOM);
-//			b3.setHorizontalAlignment(JButton.CENTER);
-//			b3.setVerticalTextPosition(JButton.BOTTOM);
-//			b4.setHorizontalAlignment(JButton.CENTER);
-//			b4.setVerticalTextPosition(JButton.BOTTOM);
-//			b5.setHorizontalAlignment(JButton.CENTER);
-//			b5.setVerticalTextPosition(JButton.BOTTOM);
-//			b6.setHorizontalAlignment(JButton.CENTER);
-//			b6.setVerticalTextPosition(JButton.BOTTOM);
+
+  
+			
 			
 	
 	}// addLayout()
 	
 	void addProc() {
+		b1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.append("죠리퐁 3000");
+			}// actionPerformed
+		});// addActionListener
+		b2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.append("칸츄리콘 2500");
+			}// actionPerformed
+		});// addActionListener
+		b3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.append("치토스 2500");
+			}// actionPerformed
+		});// addActionListener
+		b4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.append("썬칩 3000");
+			}// actionPerformed
+		});// addActionListener
+		b5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.append("카스타드 4000");
+			}// actionPerformed
+		});// addActionListener
+		b6.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.append("허니버터칩 3500");
+			}// actionPerformed
+		});// addActionListener
+		addbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				inputData();
+			}// actionPerformed
+		});// addActionListenerAddbt
+		calbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				pay();
+			}// actionPerformed
+		});// addActionListenerbpay
+		delbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cancelAll();
+			}// actionPerformed
+		});// addActionListenerbcan
+		sosbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String s= tf1.getText();
+				JOptionPane.showMessageDialog(null,"용무 "+ s +"로 종업원 호출하였습니다. 기다리세요.");
+				tf1.setText("");
+			}// actionPerformed
+		});// addActionListenersosbt
 		
-	}
+	}//eventProc
+	void inputData() {
+		String a = ta1.getText();
+		String[] b = a.split(" ");
+		EdibleVo v = new EdibleVo(b[0],Integer.valueOf(b[1]));
+		list.add(v);
+		ta1.setText("");
+		taJang.append(v.toString());
+	}//input data
+	
+	void pay() {
+		int total = 0;
+		for(EdibleVo v : list) {
+			total += v.getCost();
+		}//for
+		JOptionPane.showMessageDialog(null, "내실 총 금액은 "+ total+" 원입니다.");
+		cancelAll();
+	}//pay
+	
+	void cancelAll() {
+		taJang.setText("");
+		ta1.setText("");
+		list = new ArrayList<EdibleVo>();
+	}//cancelAll
 }

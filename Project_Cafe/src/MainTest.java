@@ -14,13 +14,13 @@ public class MainTest extends JFrame{
 	MainTest(){
 		setTitle("PC방");
 		panel_main = new Panel_Main(this);
-//<<<<<<< HEAD
+
 		panel_noodle = new Panel_Noodle(this);
 		panel_food = new Panel_Food(this);
-//=======
+
 		panel_noodle = new Panel_Noodle(this);
 		panel_food = new Panel_Food(this);
-//>>>>>>> branch 'main' of https://github.com/jsy4/KosmoMidProject-Cafe.git
+
 		panel_snack = new Panel_Snack(this);
 		panel_drink = new Panel_Drink(this);
 		
