@@ -11,21 +11,14 @@ import javax.swing.*;
 public class Panel_Drink extends JPanel {
 
 	MainTest parent;
-	JFrame f;
 
 	JButton bnd[] = new JButton[6]; // 주문 가능 수량
-	JButton bcan, bpay;// 아래 써있는 버튼들
-	// 모두취소, 결제, 장바구니 담기, 장바구니 취소, 직원호출
+	JButton bcan, bpay;// 모두취소, 결제
 
-	JLabel banner2 = new JLabel();
-	JLabel banner3 = new JLabel();
-	JLabel banner4 = new JLabel();
-	JLabel banner5 = new JLabel();
 
 	// panel_Drink
 	public Panel_Drink(MainTest mainTest) {
 		parent = mainTest;
-		f = new JFrame();
 		parent.tf = new JTextField();
 		parent.ta = new JTextArea();
 
@@ -33,12 +26,12 @@ public class Panel_Drink extends JPanel {
 
 		// 메뉴 관련버튼 (이미지 경로)
 		String[] img = { "src\\imgs\\d1.PNG", "src\\imgs\\d2.PNG", "src\\imgs\\d3.PNG", "src\\imgs\\d4.PNG",
-				"src\\imgs\\d5.PNG", "src\\imgs\\d6.PNG" };
-		String[] tooltip = { "커피: 3500원", "녹차: 3300원", "홍차: 2500원", "오렌지주스: 3000원", "자몽에이드: 3500원", "얼그레이: 2500원" };
+				"src\\imgs\\d5.PNG", "src\\imgs\\d6.PNG" }; //img source
+		String[] tooltip = { "커피: 3500원", "녹차: 3300원", "홍차: 2500원", "오렌지주스: 3000원", "자몽에이드: 3500원", "얼그레이: 2500원" };//mouse hovering
 		for (int i = 0; i < img.length; i++) {
-			bnd[i] = new JButton(new ImageIcon(img[i]));
-			bnd[i].setToolTipText(tooltip[i]);
-			bnd[i].setBackground(new Color(255, 255, 255));
+			bnd[i] = new JButton(new ImageIcon(img[i]));//버튼 이미지
+			bnd[i].setToolTipText(tooltip[i]);//툴팁 마우스 올려놨을때
+			bnd[i].setBackground(new Color(255, 255, 255));//버튼 흰색
 		}
 
 		// 주문 관련 버튼
@@ -55,7 +48,7 @@ public class Panel_Drink extends JPanel {
 	void addLayout() {
 
 		setLayout(new BorderLayout());
-		// ------------------------왼쪽패널에 주문할 버튼들
+		// ------------------------왼쪽패널에 메뉴버튼들 3x2
 		JPanel pWest = new JPanel();
 		pWest.setLayout(new GridLayout(3, 2, 10, 10));
 		pWest.setPreferredSize(new java.awt.Dimension(500, 600));
@@ -65,7 +58,7 @@ public class Panel_Drink extends JPanel {
 
 
 
-		// -------------------------------모두 취소, 결제버튼
+		// -------------------------------모두 취소, 결제버튼 맨아래
 		JPanel pSouth = new JPanel();
 		pSouth.setLayout(new GridLayout(1, 2));
 		pSouth.setPreferredSize(new java.awt.Dimension(10, 50));
