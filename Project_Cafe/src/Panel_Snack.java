@@ -21,7 +21,7 @@ public class Panel_Snack extends JPanel{
 	
 	JFrame f;
 	JButton b[] = new JButton[6];
-	JButton delbt,calbt,addbt,addbt2,sosbt;
+	JButton delbt,calbt;
 	JTextArea ta1;
 	JTextField tf1; 
 	
@@ -38,12 +38,11 @@ public class Panel_Snack extends JPanel{
 		parent = mainTest;
 		
 		f = new JFrame();
-		tf1 = new JTextField();
-		ta1 = new JTextArea();
-		parent.taJang = new JTextArea();
+		parent.tf = new JTextField();
+		parent.ta = new JTextArea();
 		
-		tf1.setPreferredSize(new Dimension(250,200));
-		parent.taJang.setPreferredSize(new Dimension(250,200));
+		
+		parent.tf.setPreferredSize(new Dimension(250,200));
 		
 		
 		// 메뉴 관련버튼 (이미지 경로)
@@ -56,34 +55,16 @@ public class Panel_Snack extends JPanel{
 			b[i].setBackground(new Color(255, 255, 255));
 		}
 
-		addbt = new JButton("장바구니 추가");
-		addbt2 = new JButton("장바구니 취소");
-		sosbt = new JButton("직원호출");
+		parent.addbt = new JButton("장바구니 추가");
+		parent.addbt2 = new JButton("장바구니 취소");
+		parent.sosbt = new JButton("직원호출");
 		delbt= new JButton("모두 취소");
 		calbt = new JButton("결제");
 		
 		addLayout();
 		addProc();
 		
-//		b1.setVerticalTextPosition(JButton.BOTTOM);
-//		b1.setHorizontalAlignment(JButton.CENTER);
-//		
-//		b2.setHorizontalAlignment(JButton.CENTER);
-//		b2.setVerticalTextPosition(JButton.BOTTOM);
-//		b3.setHorizontalAlignment(JButton.CENTER);
-//		b3.setVerticalTextPosition(JButton.BOTTOM);
-//		b4.setHorizontalAlignment(JButton.CENTER);
-//		b4.setVerticalTextPosition(JButton.BOTTOM);
-//		b5.setHorizontalAlignment(JButton.CENTER);
-//		b5.setVerticalTextPosition(JButton.BOTTOM);
-//		b6.setHorizontalAlignment(JButton.CENTER);
-//		b6.setVerticalTextPosition(JButton.BOTTOM);
-		
-		
-		
-//		setBackground(Color.CYAN);		
 
-		
 	}
 	
 	void addLayout() {
@@ -91,38 +72,19 @@ public class Panel_Snack extends JPanel{
 		
 		
 		setLayout(new BorderLayout());
+		// ------------------------왼쪽패널에 주문할 버튼들
+
 		JPanel pWest = new JPanel();
-		
 			pWest.setLayout(new GridLayout(3,2,10,10));
 			pWest.setPreferredSize(new java.awt.Dimension(500, 600));
-			for(JButton b: b) pWest.add(b);
-			
-			
+			for(JButton b: b) 
+				pWest.add(b);
 			
 		add(pWest, BorderLayout.WEST);
 		
 		
 		
-		// ----------------------------------
 		
-		JPanel pEast = new JPanel();
-			pEast.setLayout(new GridLayout(2, 1));
-			pEast.setPreferredSize(new java.awt.Dimension(300,450));
-			
-			JPanel pEast1 = new JPanel();
-			pEast1.add(tf1); // 요청 사항 입력 후, 직원 호출을 눌러주세요
-			pEast1.add(sosbt); // 직원 호출
-			JPanel pEast2 = new JPanel();
-			pEast2.add(banner1); // 이벤트 배너 삽입
-			pEast2.add(ta1); // 주문내역 출력
-			pEast2.add(addbt); // 장바구니 담기
-			
-			pEast2.add(addbt2); // 장바구니 담기
-			pEast2.add(parent.taJang); // 주문내역 출력
-			pEast.add(pEast1);
-			pEast.add(pEast2);
-
-			add(pEast, BorderLayout.EAST);
 			// ----------------------------------
 			JPanel pSouth = new JPanel();
 			pSouth.setLayout(new GridLayout(1, 2));
@@ -146,21 +108,21 @@ public class Panel_Snack extends JPanel{
 			b[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if (ta1.getText().equals(""))
-						ta1.append(a[su]);
+					if (parent.ta.getText().equals(""))
+						parent.ta.append(a[su]);
 					else
-						ta1.setText(a[su]);
+						parent.ta.setText(a[su]);
 
 				}// actionPerformed
 			});// addActionListener
 		} // for
-		addbt.addActionListener(new ActionListener() {
+		parent.addbt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				inputData();
 			}// actionPerformed
 		});// addActionListenerAddbt
-		addbt2.addActionListener(new ActionListener() {
+		parent.addbt2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				deleteData();
@@ -170,17 +132,15 @@ public class Panel_Snack extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				
 				int reply = JOptionPane.showConfirmDialog(null, "결제하시겠습니까?","결제창", JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					pay();
-				    	ta1.setText(String.valueOf(ta1.getText().equals("")));
+				    	parent.ta.setText(String.valueOf(parent.ta.getText().equals("")));
 				} else {
 				    JOptionPane.showMessageDialog(null, "취소되었습니다.");
-				    System.exit(0);
 				}
-				
-				
-				
+
 			}// actionPerformed
 		});// addActionListenerbpay
 		delbt.addActionListener(new ActionListener() {
@@ -189,7 +149,7 @@ public class Panel_Snack extends JPanel{
 				cancelAll();
 			}// actionPerformed
 		});// addActionListenerbcan
-		sosbt.addActionListener(new ActionListener() {
+		parent.sosbt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String s= tf1.getText();
@@ -204,12 +164,12 @@ public class Panel_Snack extends JPanel{
 		String[] b = a.split(" ");
 		EdibleVo v = new EdibleVo(b[0],Integer.valueOf(b[1]));
 		parent.list.add(v);
-		ta1.setText("");
+		parent.ta.setText("");
 		parent.taJang.append(v.toString());
 	}//input data
 	
 	void deleteData() {
-		String a = ta1.getText();
+		String a = parent.ta.getText();
 		if(a.equals("")) {
 			JOptionPane.showMessageDialog(null, "취소할 주문이 없습니다.");
 			return;
@@ -222,15 +182,13 @@ public class Panel_Snack extends JPanel{
 				break;
 			}//if
 
-		ta1.setText("");
+		parent.ta.setText("");
 		parent.taJang.setText("");
 		for (EdibleVo vo : parent.list)
 			parent.taJang.append(vo.toString());
 	}
 	
 	void pay() {
-		
-		
 		
 		int total = 0;
 		for(EdibleVo v : parent.list) {
@@ -245,9 +203,7 @@ public class Panel_Snack extends JPanel{
 	void cancelAll() {
 
 		parent.taJang.setText("");
-		
-		parent.taJang.setText("");
-		ta1.setText("");
+		parent.ta.setText("");
 		parent.list = new ArrayList<EdibleVo>();
 	}//cancelAll
 }

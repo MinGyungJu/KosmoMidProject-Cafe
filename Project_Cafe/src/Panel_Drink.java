@@ -110,7 +110,13 @@ public class Panel_Drink extends JPanel {
 		bpay.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				pay();
+				int reply = JOptionPane.showConfirmDialog(null, "결제하시겠습니까?","결제창", JOptionPane.YES_NO_OPTION);
+				if (reply == JOptionPane.YES_OPTION) {
+					pay();
+				    	parent.ta.setText(String.valueOf(parent.ta.getText().equals("")));
+				} else {
+				    JOptionPane.showMessageDialog(null, "취소되었습니다.");
+				}
 			}// actionPerformed
 		});// addActionListenerbpay
 		//모두 취소
