@@ -65,25 +65,7 @@ public class Panel_Snack extends JPanel{
 		addLayout();
 		addProc();
 		
-//		b1.setVerticalTextPosition(JButton.BOTTOM);
-//		b1.setHorizontalAlignment(JButton.CENTER);
-//		
-//		b2.setHorizontalAlignment(JButton.CENTER);
-//		b2.setVerticalTextPosition(JButton.BOTTOM);
-//		b3.setHorizontalAlignment(JButton.CENTER);
-//		b3.setVerticalTextPosition(JButton.BOTTOM);
-//		b4.setHorizontalAlignment(JButton.CENTER);
-//		b4.setVerticalTextPosition(JButton.BOTTOM);
-//		b5.setHorizontalAlignment(JButton.CENTER);
-//		b5.setVerticalTextPosition(JButton.BOTTOM);
-//		b6.setHorizontalAlignment(JButton.CENTER);
-//		b6.setVerticalTextPosition(JButton.BOTTOM);
-		
-		
-		
-//		setBackground(Color.CYAN);		
 
-		
 	}
 	
 	void addLayout() {
@@ -170,14 +152,15 @@ public class Panel_Snack extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int reply = JOptionPane.showConfirmDialog(null, "결제하시겠습니까?","결제창", JOptionPane.YES_NO_OPTION);
-				if (reply == JOptionPane.YES_OPTION) {
-					pay();
-				    	ta1.setText(String.valueOf(ta1.getText().equals("")));
-				} else {
-				    JOptionPane.showMessageDialog(null, "취소되었습니다.");
-				    System.exit(0);
-				}
+				pay();
+//				int reply = JOptionPane.showConfirmDialog(null, "결제하시겠습니까?","결제창", JOptionPane.YES_NO_OPTION);
+//				if (reply == JOptionPane.YES_OPTION) {
+//					pay();
+//				    	ta1.setText(String.valueOf(ta1.getText().equals("")));
+//				} else {
+//				    JOptionPane.showMessageDialog(null, "취소되었습니다.");
+//				    
+//				}
 				
 				
 				
