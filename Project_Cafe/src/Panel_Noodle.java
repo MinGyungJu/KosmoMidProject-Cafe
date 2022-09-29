@@ -47,7 +47,7 @@ public class Panel_Noodle extends JPanel {
       taJang.setPreferredSize(new Dimension(250,200));
       
       
-      addbt = new JButton("장바구니 담기");
+      addbt = new JButton("장바구니 추가");
       addbt2 = new JButton("장바구니 취소");
       sosbt = new JButton("직원호출");
       delbt= new JButton("모두 취소");

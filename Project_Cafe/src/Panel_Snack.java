@@ -53,9 +53,10 @@ public class Panel_Snack extends JPanel{
 		for(int i =0; i < img.length; i++) {
 			b[i] = new JButton(new ImageIcon(img[i]));
 			b[i].setToolTipText(tooltip[i]);
+			b[i].setBackground(new Color(255, 255, 255));
 		}
 
-		addbt = new JButton("장바구니 담기");
+		addbt = new JButton("장바구니 추가");
 		addbt2 = new JButton("장바구니 취소");
 		sosbt = new JButton("직원호출");
 		delbt= new JButton("모두 취소");
@@ -86,6 +87,8 @@ public class Panel_Snack extends JPanel{
 	}
 	
 	void addLayout() {
+		
+		
 		
 		setLayout(new BorderLayout());
 		JPanel pWest = new JPanel();
@@ -128,6 +131,8 @@ public class Panel_Snack extends JPanel{
 			pSouth.add(calbt);
 			
 			add(pSouth, BorderLayout.SOUTH);
+			
+
 
 	
 	}// addLayout()
@@ -164,7 +169,18 @@ public class Panel_Snack extends JPanel{
 		calbt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				pay();
+
+				int reply = JOptionPane.showConfirmDialog(null, "결제하시겠습니까?","결제창", JOptionPane.YES_NO_OPTION);
+				if (reply == JOptionPane.YES_OPTION) {
+					pay();
+				    	ta1.setText(String.valueOf(ta1.getText().equals("")));
+				} else {
+				    JOptionPane.showMessageDialog(null, "취소되었습니다.");
+				    System.exit(0);
+				}
+				
+				
+				
 			}// actionPerformed
 		});// addActionListenerbpay
 		delbt.addActionListener(new ActionListener() {
@@ -213,15 +229,23 @@ public class Panel_Snack extends JPanel{
 	}
 	
 	void pay() {
+		
+		
+		
 		int total = 0;
 		for(EdibleVo v : parent.list) {
 			total += v.getCost();
 		}//for
 		JOptionPane.showMessageDialog(null, "내실 총 금액은 "+ total+" 원입니다.");
+		
+
 		cancelAll();
 	}//pay
 	
 	void cancelAll() {
+
+		parent.taJang.setText("");
+		
 		parent.taJang.setText("");
 		ta1.setText("");
 		parent.list = new ArrayList<EdibleVo>();

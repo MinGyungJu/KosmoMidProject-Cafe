@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,6 +22,13 @@ public class Panel_Main extends JPanel{
 		for(int i =0; i <bMenu.length; i++) {
 			bMenu[i] = new JButton(a[i]);
 		}//for
+		String []b = {"src\\imgs\\m1.PNG","src\\imgs\\m2.PNG","src\\imgs\\m3.PNG",
+				"src\\imgs\\m4.PNG"};
+		for(int i =0; i < b.length; i++) {
+			bMenu[i] = new JButton(new ImageIcon(b[i]));
+			bMenu[i].setBackground(new Color(255, 255, 255));
+		}
+		
 		addLayout();
 		eventProc();
 	}//Panel_Main
