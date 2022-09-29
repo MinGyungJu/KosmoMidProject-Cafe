@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 public class Panel_Snack extends JPanel{
 	
@@ -95,6 +94,7 @@ public class Panel_Snack extends JPanel{
 			pWest.setLayout(new GridLayout(3,2,10,10));
 			pWest.setPreferredSize(new java.awt.Dimension(500, 600));
 			for(JButton b: b) pWest.add(b);
+			
 			
 			
 		add(pWest, BorderLayout.WEST);
