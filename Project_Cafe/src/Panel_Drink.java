@@ -13,11 +13,10 @@ public class Panel_Drink extends JPanel {
 	MainTest parent;
 	JFrame f;
 	JTextField tf;// 직원호출
-	JTextArea ta, taJang; // 장바구니 담기취소, 장바구니 컨텐트
+	JTextArea ta; // 장바구니 담기취소, 장바구니 컨텐트
 	JButton bnd[] = new JButton[6]; // 주문 가능 수량
 	JButton bcan, bpay, addbt, addbt2, sosbt;// 아래 써있는 버튼들
 	// 모두취소, 결제, 장바구니 담기, 장바구니 취소, 직원호출
-	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();// 주문가지고 있기
 
 	JLabel banner1 = new JLabel("요청 쓴후에 호출, 장바구니에는 하나씩만");
 	JLabel banner2 = new JLabel();
@@ -31,10 +30,8 @@ public class Panel_Drink extends JPanel {
 		f = new JFrame();
 		tf = new JTextField();
 		ta = new JTextArea();
-		taJang = new JTextArea();
 
 		tf.setPreferredSize(new Dimension(250, 200));
-		taJang.setPreferredSize(new Dimension(250, 200));
 
 		// 메뉴 관련버튼 (이미지 경로)
 		String[] img = { "src\\imgs\\d1.PNG", "src\\imgs\\d2.PNG", "src\\imgs\\d3.PNG", "src\\imgs\\d4.PNG",
@@ -81,7 +78,7 @@ public class Panel_Drink extends JPanel {
 		pEast2.add(ta); // 주문내역 출력
 		pEast2.add(addbt); // 장바구니 담기
 		pEast2.add(addbt2); // 장바구니 취소
-		pEast2.add(taJang); // 주문내역 출력
+		pEast2.add(parent.taJang); // 주문내역 출력
 		pEast.add(pEast1);
 		pEast.add(pEast2);
 		add(pEast, BorderLayout.EAST);
@@ -158,9 +155,9 @@ public class Panel_Drink extends JPanel {
 		String a = ta.getText();
 		String[] b = a.split(" ");
 		EdibleVo v = new EdibleVo(b[0], Integer.valueOf(b[1]));
-		list.add(v);
+		parent.list.add(v);
 		ta.setText("");
-		taJang.append(v.toString());
+		parent.taJang.append(v.toString());
 	}// input dataa
 
 	// deletes from taJang(장바구니)
@@ -172,21 +169,21 @@ public class Panel_Drink extends JPanel {
 		} // if
 		String[] b = a.split(" ");
 		
-		for (EdibleVo vo : list)
+		for (EdibleVo vo : parent.list)
 			if (b[0].equals(vo.getName())) {
-				list.remove(vo);
+				parent.list.remove(vo);
 				break; //꼭 필요함
 			} // if
 		ta.setText("");
-		taJang.setText("");
-		for (EdibleVo vo : list)
-			taJang.append(vo.toString());
+		parent.taJang.setText("");
+		for (EdibleVo vo : parent.list)
+			parent.taJang.append(vo.toString());
 	}// deletedata
 
 	// 결제창을 띄우고 다 지우기
 	void pay() {
 		int total = 0;
-		for (EdibleVo v : list) {
+		for (EdibleVo v : parent.list) {
 			total += v.getCost();
 		} // for
 		JOptionPane.showMessageDialog(null, "내실 총 금액은 " + total + " 원입니다.");
@@ -195,8 +192,8 @@ public class Panel_Drink extends JPanel {
 
 	//모든 정보 지우기
 	void cancelAll() {
-		taJang.setText("");
+		parent.taJang.setText("");
 		ta.setText("");
-		list = new ArrayList<EdibleVo>();
+		parent.list = new ArrayList<EdibleVo>();
 	}
 }// panel_drink

@@ -1,8 +1,10 @@
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 
 public class MainTest extends JFrame{
 	Panel_Main panel_main; 
@@ -11,6 +13,8 @@ public class MainTest extends JFrame{
 	Panel_Snack panel_snack;
 	Panel_Drink panel_drink;
 	JTabbedPane tab = new JTabbedPane();
+	public ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
+	public JTextArea taJang = new JTextArea();
 
 	MainTest(){
 		setTitle("PC방");

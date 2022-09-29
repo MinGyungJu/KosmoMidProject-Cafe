@@ -22,9 +22,8 @@ public class Panel_Snack extends JPanel{
 	JFrame f;
 	JButton b[] = new JButton[6];
 	JButton delbt,calbt,addbt,addbt2,sosbt;
-	JTextArea ta1, taJang;
+	JTextArea ta1;
 	JTextField tf1; 
-	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 	
 	JLabel banner1 = new JLabel("요청 쓴후에 호출, 장바구니에는 하나씩만");
 	JLabel banner2 = new JLabel();
@@ -41,10 +40,10 @@ public class Panel_Snack extends JPanel{
 		f = new JFrame();
 		tf1 = new JTextField();
 		ta1 = new JTextArea();
-		taJang = new JTextArea();
+		parent.taJang = new JTextArea();
 		
 		tf1.setPreferredSize(new Dimension(250,200));
-		taJang.setPreferredSize(new Dimension(250,200));
+		parent.taJang.setPreferredSize(new Dimension(250,200));
 		
 		
 		// 메뉴 관련버튼 (이미지 경로)
@@ -116,7 +115,7 @@ public class Panel_Snack extends JPanel{
 			pEast2.add(addbt); // 장바구니 담기
 			
 			pEast2.add(addbt2); // 장바구니 담기
-			pEast2.add(taJang); // 주문내역 출력
+			pEast2.add(parent.taJang); // 주문내역 출력
 			pEast.add(pEast1);
 			pEast.add(pEast2);
 
@@ -188,9 +187,9 @@ public class Panel_Snack extends JPanel{
 		String a = ta1.getText();
 		String[] b = a.split(" ");
 		EdibleVo v = new EdibleVo(b[0],Integer.valueOf(b[1]));
-		list.add(v);
+		parent.list.add(v);
 		ta1.setText("");
-		taJang.append(v.toString());
+		parent.taJang.append(v.toString());
 	}//input data
 	
 	void deleteData() {
@@ -201,21 +200,21 @@ public class Panel_Snack extends JPanel{
 		}//if
 		String[] b = a.split(" ");
 
-		for (EdibleVo vo : list)
+		for (EdibleVo vo : parent.list)
 			if (b[0].equals(vo.getName())) {
-				list.remove(vo);
+				parent.list.remove(vo);
 				break;
 			}//if
 
 		ta1.setText("");
-		taJang.setText("");
-		for (EdibleVo vo : list)
-			taJang.append(vo.toString());
+		parent.taJang.setText("");
+		for (EdibleVo vo : parent.list)
+			parent.taJang.append(vo.toString());
 	}
 	
 	void pay() {
 		int total = 0;
-		for(EdibleVo v : list) {
+		for(EdibleVo v : parent.list) {
 			total += v.getCost();
 		}//for
 		JOptionPane.showMessageDialog(null, "내실 총 금액은 "+ total+" 원입니다.");
@@ -223,8 +222,8 @@ public class Panel_Snack extends JPanel{
 	}//pay
 	
 	void cancelAll() {
-		taJang.setText("");
+		parent.taJang.setText("");
 		ta1.setText("");
-		list = new ArrayList<EdibleVo>();
+		parent.list = new ArrayList<EdibleVo>();
 	}//cancelAll
 }
