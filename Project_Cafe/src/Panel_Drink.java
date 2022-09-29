@@ -13,8 +13,8 @@ public class Panel_Drink extends JPanel {
 	MainTest parent;
 	JFrame f;
 	JTextField tf;
-	JTextArea ta,taJang;
-	JButton bnd1, bnd2, bnd3, bnd4, bnd5, bnd6, bcan, bpay, addbt, sosbt;
+	JTextArea ta, taJang;
+	JButton bnd1, bnd2, bnd3, bnd4, bnd5, bnd6, bcan, bpay, addbt, addbt2, sosbt;
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 
 	JLabel banner1 = new JLabel("요청사항을 쓴 후에 호출버튼을 누르세요. 장바구니에는 하나씩만 담으세요");
@@ -31,8 +31,8 @@ public class Panel_Drink extends JPanel {
 		tf = new JTextField();
 		ta = new JTextArea();
 		taJang = new JTextArea();
-		tf.setPreferredSize(new Dimension(250,200));
-		taJang.setPreferredSize(new Dimension(250,200));
+		tf.setPreferredSize(new Dimension(250, 200));
+		taJang.setPreferredSize(new Dimension(250, 200));
 		// 메뉴 관련버튼 (이미지 경로)
 		bnd1 = new JButton("커피:3500원", new ImageIcon("src\\imgs\\1.PNG"));
 		bnd2 = new JButton("녹차:3300원", new ImageIcon("src\\imgs\\2.PNG"));
@@ -44,6 +44,7 @@ public class Panel_Drink extends JPanel {
 		bcan = new JButton("모두 취소");
 		bpay = new JButton("결제");
 		addbt = new JButton("장바구니 담기");
+		addbt2 = new JButton("장바구니 취소");
 		sosbt = new JButton("직원호출");
 		addLayout();
 		eventProc();
@@ -86,6 +87,8 @@ public class Panel_Drink extends JPanel {
 		pEast2.add(banner1); // 이벤트 배너 삽입
 		pEast2.add(ta); // 주문내역 출력
 		pEast2.add(addbt); // 장바구니 담기
+
+		pEast2.add(addbt2); // 장바구니 담기
 		pEast2.add(taJang); // 주문내역 출력
 		pEast.add(pEast1);
 		pEast.add(pEast2);
@@ -106,37 +109,56 @@ public class Panel_Drink extends JPanel {
 		bnd1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta.append("커피 3500");
+				if (ta.getText().equals(""))
+					ta.append("커피 3500");
+				else 
+					ta.setText("커피 3500");
+				
 			}// actionPerformed
 		});// addActionListener
 		bnd2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta.append("녹차 3300");
+				if (ta.getText().equals(""))
+					ta.append("녹차 3300");
+				else 
+					ta.setText("녹차 3300");
 			}// actionPerformed
 		});// addActionListener
 		bnd3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta.append("홍차 2500");
+				if (ta.getText().equals(""))
+					ta.append("홍차 2500");
+				else 
+					ta.setText("홍차 2500");
 			}// actionPerformed
 		});// addActionListener
 		bnd4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta.append("오렌지주스 3000");
+				if (ta.getText().equals(""))
+					ta.append("오렌지주스 3000");
+				else 
+					ta.setText("오렌지주스 3000");
 			}// actionPerformed
 		});// addActionListener
 		bnd5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta.append("자몽에이드 3500");
+				if (ta.getText().equals(""))
+					ta.append("자몽에이드 3500");
+				else 
+					ta.setText("자몽에이드 3500");
 			}// actionPerformed
 		});// addActionListener
 		bnd6.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ta.append("얼그레이 2500");
+				if (ta.getText().equals(""))
+					ta.append("얼그레이 2500");
+				else 
+					ta.setText("얼그레이 2500");
 			}// actionPerformed
 		});// addActionListener
 		addbt.addActionListener(new ActionListener() {
@@ -145,6 +167,12 @@ public class Panel_Drink extends JPanel {
 				inputData();
 			}// actionPerformed
 		});// addActionListenerAddbt
+		addbt2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				deleteData();
+			}// actionPerformed
+		});// addActionListenerAddbt2
 		bpay.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -160,30 +188,51 @@ public class Panel_Drink extends JPanel {
 		sosbt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String s= tf.getText();
-				JOptionPane.showMessageDialog(null,"용무 "+ s +"로 종업원 호출하였습니다. 기다리세요.");
+				String s = tf.getText();
+				JOptionPane.showMessageDialog(null, "용무 " + s + "로 종업원 호출하였습니다. 기다리세요.");
 				tf.setText("");
 			}// actionPerformed
 		});// addActionListenersosbt
 	}// eventProc
+
 	void inputData() {
 		String a = ta.getText();
 		String[] b = a.split(" ");
-		EdibleVo v = new EdibleVo(b[0],Integer.valueOf(b[1]));
+		EdibleVo v = new EdibleVo(b[0], Integer.valueOf(b[1]));
 		list.add(v);
 		ta.setText("");
 		taJang.append(v.toString());
-	}//input dataa
-	
+	}// input dataa
+
+	void deleteData() {
+		String a = ta.getText();
+		if(a.equals("")) {
+			JOptionPane.showMessageDialog(null, "취소할 주문이 없습니다.");
+			return;
+		}//if
+		String[] b = a.split(" ");
+
+		for (EdibleVo vo : list)
+			if (b[0].equals(vo.getName())) {
+				list.remove(vo);
+				break;
+			}//if
+
+		ta.setText("");
+		taJang.setText("");
+		for (EdibleVo vo : list)
+			taJang.append(vo.toString());
+	}
+
 	void pay() {
 		int total = 0;
-		for(EdibleVo v : list) {
+		for (EdibleVo v : list) {
 			total += v.getCost();
-		}//for
-		JOptionPane.showMessageDialog(null, "내실 총 금액은 "+ total+" 원입니다.");
+		} // for
+		JOptionPane.showMessageDialog(null, "내실 총 금액은 " + total + " 원입니다.");
 		cancelAll();
-	}//pay
-	
+	}// pay
+
 	void cancelAll() {
 		taJang.setText("");
 		ta.setText("");
