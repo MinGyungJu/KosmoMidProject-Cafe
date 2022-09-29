@@ -14,7 +14,8 @@ public class Panel_Drink extends JPanel {
 	JFrame f;
 	JTextField tf;
 	JTextArea ta, taJang;
-	JButton bnd1, bnd2, bnd3, bnd4, bnd5, bnd6, bcan, bpay, addbt, addbt2, sosbt;
+	JButton bnd[] = new JButton[6];
+	JButton bcan, bpay, addbt, addbt2, sosbt;
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 
 	JLabel banner1 = new JLabel("요청 쓴후에 호출, 장바구니에는 하나씩만");
@@ -37,12 +38,14 @@ public class Panel_Drink extends JPanel {
 		tf.setPreferredSize(new Dimension(250, 200));
 		taJang.setPreferredSize(new Dimension(250, 200));
 		// 메뉴 관련버튼 (이미지 경로)
-		bnd1 = new JButton(new ImageIcon("src\\imgs\\d1.PNG"));
-		bnd2 = new JButton(new ImageIcon("src\\imgs\\d2.PNG"));
-		bnd3 = new JButton(new ImageIcon("src\\imgs\\d3.PNG"));
-		bnd4 = new JButton(new ImageIcon("src\\imgs\\d4.PNG"));
-		bnd5 = new JButton(new ImageIcon("src\\imgs\\d5.PNG"));
-		bnd6 = new JButton(new ImageIcon("src\\imgs\\d6.PNG"));
+		String []img = {"src\\imgs\\d1.PNG","src\\imgs\\d2.PNG","src\\imgs\\d3.PNG",
+				"src\\imgs\\d4.PNG","src\\imgs\\d5.PNG","src\\imgs\\d6.PNG"};
+		String[] tooltip = { "커피: 3500원", "녹차: 3300원", "홍차: 2500원", "오렌지주스: 3000원", "자몽에이드: 3500원", "얼그레이: 2500원" };
+		for(int i =0; i < img.length; i++) {
+			bnd[i] = new JButton(new ImageIcon(img[i]));
+			bnd[i].setToolTipText(tooltip[i]);
+		}
+
 		// 주문 관련 버튼
 		bcan = new JButton("모두 취소");
 		bpay = new JButton("결제");
@@ -63,12 +66,7 @@ public class Panel_Drink extends JPanel {
 		JPanel pWest = new JPanel();
 		pWest.setLayout(new GridLayout(3, 2, 10, 10));
 		pWest.setPreferredSize(new java.awt.Dimension(500, 600));
-		pWest.add(bnd1);
-		pWest.add(bnd2);
-		pWest.add(bnd3);
-		pWest.add(bnd4);
-		pWest.add(bnd5);
-		pWest.add(bnd6);
+		for(JButton b: bnd) pWest.add(b);
 
 		add(pWest, BorderLayout.WEST);
 
@@ -90,8 +88,7 @@ public class Panel_Drink extends JPanel {
 		pEast2.add(banner1); // 이벤트 배너 삽입
 		pEast2.add(ta); // 주문내역 출력
 		pEast2.add(addbt); // 장바구니 담기
-
-		pEast2.add(addbt2); // 장바구니 담기
+		pEast2.add(addbt2); // 장바구니 취소
 		pEast2.add(taJang); // 주문내역 출력
 		pEast.add(pEast1);
 		pEast.add(pEast2);
@@ -109,7 +106,22 @@ public class Panel_Drink extends JPanel {
 	} // addLayout()
 
 	void eventProc() {
-		bnd1.addActionListener(new ActionListener() {
+//		String[] a = { "커피 3500", "녹차 3300", "홍차 2500", "오렌지주스 3000", "자몽에이드 3500", "얼그레이 2500" };
+//		for ( i = 0; i < bnd.length; i++) {
+//			bnd[i].addActionListener(new ActionListener() {
+//				
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					if (ta.getText().equals(""))
+//						ta.append(a[i]);
+//					else
+//						ta.setText("커피 3500");
+//
+//				}// actionPerformed
+//			});// addActionListener
+//		}
+		
+		bnd[0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta.getText().equals(""))
@@ -119,7 +131,8 @@ public class Panel_Drink extends JPanel {
 				
 			}// actionPerformed
 		});// addActionListener
-		bnd2.addActionListener(new ActionListener() {
+
+		bnd[1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta.getText().equals(""))
@@ -128,7 +141,7 @@ public class Panel_Drink extends JPanel {
 					ta.setText("녹차 3300");
 			}// actionPerformed
 		});// addActionListener
-		bnd3.addActionListener(new ActionListener() {
+		bnd[2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta.getText().equals(""))
@@ -137,7 +150,7 @@ public class Panel_Drink extends JPanel {
 					ta.setText("홍차 2500");
 			}// actionPerformed
 		});// addActionListener
-		bnd4.addActionListener(new ActionListener() {
+		bnd[3].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta.getText().equals(""))
@@ -146,7 +159,7 @@ public class Panel_Drink extends JPanel {
 					ta.setText("오렌지주스 3000");
 			}// actionPerformed
 		});// addActionListener
-		bnd5.addActionListener(new ActionListener() {
+		bnd[4].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta.getText().equals(""))
@@ -155,7 +168,7 @@ public class Panel_Drink extends JPanel {
 					ta.setText("자몽에이드 3500");
 			}// actionPerformed
 		});// addActionListener
-		bnd6.addActionListener(new ActionListener() {
+		bnd[5].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta.getText().equals(""))
@@ -226,7 +239,7 @@ public class Panel_Drink extends JPanel {
 		for (EdibleVo vo : list)
 			taJang.append(vo.toString());
 	}
-
+	//displays amount to be paid and sets all values to zero
 	void pay() {
 		int total = 0;
 		for (EdibleVo v : list) {
@@ -236,43 +249,11 @@ public class Panel_Drink extends JPanel {
 		cancelAll();
 	}// pay
 
+	//
 	void cancelAll() {
 		taJang.setText("");
 		ta.setText("");
 		list = new ArrayList<EdibleVo>();
 	}
 }// panel_drink
-//////////////////////////////////////////////////////////////////////////
-/*
- * JButton aBtn = new JButton("A button"); JTextArea ta = new JTextArea();
- * JButton[] bMenu = new JButton[6];
- * 
- * JButton addbt = new JButton("장바구니 담기"); JButton sosbt = new JButton("직원호출");
- * JButton delbt= new JButton("         취소 (alt+x)        "); JButton calbt =
- * new JButton("              결제              ");
- * 
- * JLabel banner1 = new JLabel(); JLabel banner2 = new JLabel(); JLabel banner3
- * = new JLabel(); JLabel banner4 = new JLabel(); JLabel banner5 = new JLabel();
- * 
- * 
- * setBackground(Color.CYAN); String a[] = { "커피", "녹차", "자몽에이드", "홍차", "홍차",
- * "홍차", "홍차" }; for (int i = 0; i < bMenu.length; i++) { bMenu[i] = new
- * JButton(a[i]); } // for addLayout(); addProc(); }// panel_drink
- * 
- * void addLayout() {
- * 
- * setLayout(new BorderLayout());
- * 
- * //오른쪽에 메뉴 보여주 JPanel pWest = new JPanel(); pWest.setLayout(new GridLayout(3,
- * 2)); pWest.setPreferredSize(new java.awt.Dimension(550, 500)); for (int i =
- * 0; i < bMenu.length; i++) { pWest.add(bMenu[i]); } // for
- * 
- * JPanel pCenter = new JPanel(); pCenter.add(ta); add(pWest,
- * BorderLayout.WEST); add(pCenter, BorderLayout.CENTER);
- * 
- * }// addLayout
- * 
- * void addProc() {
- * 
- * }// addProc
- */
+
