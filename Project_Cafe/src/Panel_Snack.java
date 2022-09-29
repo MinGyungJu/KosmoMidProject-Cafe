@@ -26,7 +26,7 @@ public class Panel_Snack extends JPanel{
 	JTextField tf1; 
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 	
-	JLabel banner1 = new JLabel();
+	JLabel banner1 = new JLabel("요청 쓴후에 호출, 장바구니에는 하나씩만");
 	JLabel banner2 = new JLabel();
 	JLabel banner3 = new JLabel();
 	JLabel banner4 = new JLabel();
@@ -48,11 +48,11 @@ public class Panel_Snack extends JPanel{
 		
 		
 		
-		addbt = new JButton("장바구니담기");
+		addbt = new JButton("장바구니 담기");
 		addbt2 = new JButton("장바구니 취소");
 		sosbt = new JButton("직원호출");
-		delbt= new JButton("         취소 (alt+x)        ");
-		calbt = new JButton("              결제              ");
+		delbt= new JButton("모두 취소");
+		calbt = new JButton("결제");
 		
 //		for(int i=0; i<)
 		
@@ -68,19 +68,19 @@ public class Panel_Snack extends JPanel{
 		addLayout();
 		addProc();
 		
-		b1.setVerticalTextPosition(JButton.BOTTOM);
-		b1.setHorizontalAlignment(JButton.CENTER);
-		
-		b2.setHorizontalAlignment(JButton.CENTER);
-		b2.setVerticalTextPosition(JButton.BOTTOM);
-		b3.setHorizontalAlignment(JButton.CENTER);
-		b3.setVerticalTextPosition(JButton.BOTTOM);
-		b4.setHorizontalAlignment(JButton.CENTER);
-		b4.setVerticalTextPosition(JButton.BOTTOM);
-		b5.setHorizontalAlignment(JButton.CENTER);
-		b5.setVerticalTextPosition(JButton.BOTTOM);
-		b6.setHorizontalAlignment(JButton.CENTER);
-		b6.setVerticalTextPosition(JButton.BOTTOM);
+//		b1.setVerticalTextPosition(JButton.BOTTOM);
+//		b1.setHorizontalAlignment(JButton.CENTER);
+//		
+//		b2.setHorizontalAlignment(JButton.CENTER);
+//		b2.setVerticalTextPosition(JButton.BOTTOM);
+//		b3.setHorizontalAlignment(JButton.CENTER);
+//		b3.setVerticalTextPosition(JButton.BOTTOM);
+//		b4.setHorizontalAlignment(JButton.CENTER);
+//		b4.setVerticalTextPosition(JButton.BOTTOM);
+//		b5.setHorizontalAlignment(JButton.CENTER);
+//		b5.setVerticalTextPosition(JButton.BOTTOM);
+//		b6.setHorizontalAlignment(JButton.CENTER);
+//		b6.setVerticalTextPosition(JButton.BOTTOM);
 		
 		
 		

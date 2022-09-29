@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -14,9 +15,6 @@ public class MainTest extends JFrame{
 	MainTest(){
 		setTitle("PC방");
 		panel_main = new Panel_Main(this);
-
-
-
 
 		panel_noodle = new Panel_Noodle(this);
 		panel_food = new Panel_Food(this);
@@ -35,6 +33,8 @@ public class MainTest extends JFrame{
 		tab.addTab("간식", panel_snack);
 		tab.addTab("음료", panel_drink);
 		add(tab,BorderLayout.CENTER);
+		
+	
 		
 		setBounds(100, 100, 900, 700);
 		setVisible(true);
