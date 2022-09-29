@@ -13,11 +13,11 @@ public class Panel_Snack extends JPanel{
 	MainTest parent;
 	
 	JButton b1 = new JButton("죠리뽕", new ImageIcon("src\\imgs\\1.png"));
-	JButton b2 = new JButton("칸츄리콘", new ImageIcon("src\\imgs\\2.png"));
-	JButton b3 = new JButton("치토스", new ImageIcon("src\\imgs\\3.png"));
-	JButton b4 = new JButton("썬칩", new ImageIcon("src\\imgs\\4.png"));
-	JButton b5 = new JButton("썬칩", new ImageIcon("src\\imgs\\5.png"));
-	JButton b6 = new JButton("허니버터칩", new ImageIcon("src\\imgs\\6.png"));
+	JButton b2 = new JButton("칸츄리콘", new ImageIcon("src\\imgs\\2.jpg"));
+	JButton b3 = new JButton("치토스", new ImageIcon("src\\imgs\\3.jpg"));
+	JButton b4 = new JButton("썬칩", new ImageIcon("src\\imgs\\4.jpg"));
+	JButton b5 = new JButton("썬칩", new ImageIcon("src\\imgs\\5.jpg"));
+	JButton b6 = new JButton("허니버터칩", new ImageIcon("src\\imgs\\6.jpg"));
 	JButton addbt = new JButton("장바구니담기");
 	JButton delbt= new JButton("취소");
 	JButton calbt = new JButton("결제");
