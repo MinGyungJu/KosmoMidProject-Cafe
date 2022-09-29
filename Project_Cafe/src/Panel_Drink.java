@@ -31,6 +31,7 @@ public class Panel_Drink extends JPanel {
 		tf = new JTextField();
 		ta = new JTextArea();
 		taJang = new JTextArea();
+	
 		tf.setPreferredSize(new Dimension(250,200));
 		taJang.setPreferredSize(new Dimension(250,200));
 		// 메뉴 관련버튼 (이미지 경로)

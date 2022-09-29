@@ -22,7 +22,7 @@ public class MainTest extends JFrame{
 		panel_food = new Panel_Food(this);
 //>>>>>>> branch 'main' of https://github.com/jsy4/KosmoMidProject-Cafe.git
 		panel_snack = new Panel_Snack(this);
-		panel_drink = new Panel_Drink();
+		panel_drink = new Panel_Drink(this);
 		
 	}
 	
