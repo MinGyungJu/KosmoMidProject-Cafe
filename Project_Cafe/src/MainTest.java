@@ -26,7 +26,7 @@ public class MainTest extends JFrame{
 	}
 	
 	void addLayout() {
-
+		//JTabbedPane 추가
 		tab.addTab("main", panel_main);
 		tab.addTab("라면", panel_noodle);
 		tab.addTab("분식", panel_food);

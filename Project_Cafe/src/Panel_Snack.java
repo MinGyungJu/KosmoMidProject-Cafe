@@ -46,8 +46,7 @@ public class Panel_Snack extends JPanel{
 		
 		tf1.setPreferredSize(new Dimension(250,200));
 		taJang.setPreferredSize(new Dimension(250,200));
-		tf1.setPreferredSize(new Dimension(250, 200));
-		taJang.setPreferredSize(new Dimension(250, 200));
+		
 		
 		// 메뉴 관련버튼 (이미지 경로)
 		String []img = {"src\\imgs\\s1.PNG","src\\imgs\\s2.PNG","src\\imgs\\s3.PNG",
@@ -63,11 +62,6 @@ public class Panel_Snack extends JPanel{
 		sosbt = new JButton("직원호출");
 		delbt= new JButton("모두 취소");
 		calbt = new JButton("결제");
-		
-//		for(int i=0; i<)
-		
-		
-
 		
 		addLayout();
 		addProc();
@@ -108,11 +102,6 @@ public class Panel_Snack extends JPanel{
 		
 		
 		// ----------------------------------
-		JPanel pNorth = new JPanel();
-		pNorth.setLayout(new GridLayout(1, 2));
-		pNorth.add(tf1);
-		add(pNorth, BorderLayout.NORTH);
-		// ----------------------------------
 		
 		JPanel pEast = new JPanel();
 			pEast.setLayout(new GridLayout(2, 1));
@@ -141,67 +130,26 @@ public class Panel_Snack extends JPanel{
 			
 			add(pSouth, BorderLayout.SOUTH);
 
-  
-			
-			
 	
 	}// addLayout()
 	
 	void addProc() {
-		b[0].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ta1.getText().equals(""))
-					ta1.append("죠리퐁 3000");
-				else 
-					ta1.setText("죠리퐁 3000");
-			}// actionPerformed
-		});// addActionListener
-		b[1].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ta1.getText().equals(""))
-					ta1.append("칸츄리콘 2500");
-				else 
-					ta1.setText("칸츄리콘 2500");
-			}// actionPerformed
-		});// addActionListener
-		b[2].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ta1.getText().equals(""))
-					ta1.append("치토스 2500");
-				else 
-					ta1.setText("치토스 2500");
-			}// actionPerformed
-		});// addActionListener
-		b[3].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ta1.getText().equals(""))
-					ta1.append("썬칩 3000");
-				else 
-					ta1.setText("썬칩 3300");
-			}// actionPerformed
-		});// addActionListener
-		b[4].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ta1.getText().equals(""))
-					ta1.append("카스타드 4000");
-				else 
-					ta1.setText("카스타드 4000");
-			}// actionPerformed
-		});// addActionListener
-		b[5].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (ta1.getText().equals(""))
-					ta1.append("허니버터칩 3000");
-				else 
-					ta1.setText("허니버터칩 3000");
-			}// actionPerformed
-		});// addActionListener
+		//-----------------------------각각의 버튼이 눌렸을때 장바구니에 담기
+		String[] a = { "죠리뽕 3000", "칸츄리콘 2500", "치토스 2500", 
+				"썬칩 3000", "카스타드 4000", "허니버터칩 3500" };
+		for (int i = 0; i < b.length; i++) {
+			int su = i;
+			b[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if (ta1.getText().equals(""))
+						ta1.append(a[su]);
+					else
+						ta1.setText(a[su]);
+
+				}// actionPerformed
+			});// addActionListener
+		} // for
 		addbt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
