@@ -14,7 +14,7 @@ public class Panel_Drink extends JPanel {
 	JFrame f;
 	JTextField tf;// 직원호출
 	JTextArea ta, taJang; // 장바구니 담기취소, 장바구니 컨텐트
-	JButton bnd[] = new JButton[6]; // 주문 가능 수량
+	JButton bnd[] = new JButton[6]; // 커피 메뉴 버튼  
 	JButton bcan, bpay, addbt, addbt2, sosbt;// 아래 써있는 버튼들
 	// 모두취소, 결제, 장바구니 담기, 장바구니 취소, 직원호출
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();// 주문가지고 있기
@@ -43,6 +43,7 @@ public class Panel_Drink extends JPanel {
 		for (int i = 0; i < img.length; i++) {
 			bnd[i] = new JButton(new ImageIcon(img[i]));
 			bnd[i].setToolTipText(tooltip[i]);
+			bnd[i].setBackground(new Color(255, 255, 255));
 		}
 
 		// 주문 관련 버튼

@@ -25,7 +25,7 @@ public class Panel_Main extends JPanel{
 				"src\\imgs\\m4.PNG"};
 		for(int i =0; i < b.length; i++) {
 			bMenu[i] = new JButton(new ImageIcon(b[i]));
-			
+			bMenu[i].setBackground(new Color(255, 255, 255));
 		}
 		
 		

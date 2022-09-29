@@ -15,7 +15,6 @@ public class MainTest extends JFrame{
 	MainTest(){
 		setTitle("PC방");
 		panel_main = new Panel_Main(this);
-
 		panel_noodle = new Panel_Noodle(this);
 		panel_food = new Panel_Food(this);
 		panel_noodle = new Panel_Noodle(this);
@@ -23,7 +22,7 @@ public class MainTest extends JFrame{
 		panel_snack = new Panel_Snack(this);
 		panel_drink = new Panel_Drink(this);
 		
-	}
+	} 
 	
 	void addLayout() {
 		//JTabbedPane 추가
