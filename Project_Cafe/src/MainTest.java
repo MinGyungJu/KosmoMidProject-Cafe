@@ -17,7 +17,7 @@ public class MainTest extends JFrame{
 		panel_noodle = new Panel_Noodle(this);
 		panel_food = new Panel_Food();
 		panel_snack = new Panel_Snack(this);
-		panel_drink = new Panel_Drink();
+		panel_drink = new Panel_Drink(this);
 		
 	}
 	

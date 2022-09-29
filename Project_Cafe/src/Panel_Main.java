@@ -34,7 +34,6 @@ public class Panel_Main extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				parent.tab.setSelectedIndex(1); 
-				JOptionPane.showMessageDialog(null, "event occurred-0t");
 			}//actionPerformed
 		});//addActionListener
 		bMenu[1].addActionListener(new ActionListener() {
