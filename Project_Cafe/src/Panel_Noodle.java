@@ -23,7 +23,8 @@ public class Panel_Noodle extends JPanel {
    
    JTextField tf;
    JTextArea ta,taJang;
-   JButton bnd1, bnd2, bnd3, bnd4, bnd5, bnd6, delbt,calbt,addbt,addbt2,sosbt;
+   JButton bnd[] = new JButton[6];
+   JButton delbt,calbt,addbt,addbt2,sosbt;
    ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
 
    JLabel banner1 = new JLabel("요청 쓴후에 호출, 장바구니에는 하나씩만");
@@ -52,12 +53,20 @@ public class Panel_Noodle extends JPanel {
       calbt = new JButton("              결제              ");
       
       // 메뉴 관련버튼 (이미지 경로)
-      bnd1 = new JButton( new ImageIcon("src\\imgs\\n1.PNG"));
-      bnd2 = new JButton( new ImageIcon("src\\imgs\\n2.PNG"));
-      bnd3 = new JButton( new ImageIcon("src\\imgs\\n3.PNG"));
-      bnd4 = new JButton( new ImageIcon("src\\imgs\\n4.PNG"));
-      bnd5 = new JButton( new ImageIcon("src\\imgs\\n5.PNG"));
-      bnd6 = new JButton( new ImageIcon("src\\imgs\\n6.PNG"));
+//      bnd1 = new JButton( new ImageIcon("src\\imgs\\n1.PNG"));
+//      bnd2 = new JButton( new ImageIcon("src\\imgs\\n2.PNG"));
+//      bnd3 = new JButton( new ImageIcon("src\\imgs\\n3.PNG"));
+//      bnd4 = new JButton( new ImageIcon("src\\imgs\\n4.PNG"));
+//      bnd5 = new JButton( new ImageIcon("src\\imgs\\n5.PNG"));
+//      bnd6 = new JButton( new ImageIcon("src\\imgs\\n6.PNG"));
+      String []img = {"src\\imgs\\n1.PNG","src\\imgs\\n2.PNG","src\\imgs\\n3.PNG",
+				"src\\imgs\\n4.PNG","src\\imgs\\n5.PNG","src\\imgs\\n6.PNG"};
+		String[] tooltip = { "너구리: 3500원", "신라면: 3500원","오징어짬뽕: 3500원", "튀김우동: 3500원", "진라면: 3000원","짜파게티 : 3500원" };
+		for(int i =0; i < img.length; i++) {
+			bnd[i] = new JButton(new ImageIcon(img[i]));
+			bnd[i].setToolTipText(tooltip[i]);
+		}
+
       // 주문 관련 버튼
    
       addLayout();
@@ -74,12 +83,7 @@ public class Panel_Noodle extends JPanel {
       
       pWest.setLayout(new GridLayout(3, 2, 10, 10));
       pWest.setPreferredSize(new java.awt.Dimension(500, 600));
-      pWest.add(bnd1);
-      pWest.add(bnd2);
-      pWest.add(bnd3);
-      pWest.add(bnd4);
-      pWest.add(bnd5);
-      pWest.add(bnd6);
+      for(JButton b: bnd) pWest.add(b);
 
       add(pWest, BorderLayout.WEST);
 
@@ -118,37 +122,40 @@ public class Panel_Noodle extends JPanel {
    } // addLayout()
 
    void eventProc() {
-      bnd1.addActionListener(new ActionListener() {
+      bnd[0].addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            ta.append("너구리 3500");
+        	 if (ta.getText().equals(""))
+					ta.append("커피 3500");
+				else 
+					ta.setText("커피 3500");
          }// actionPerformed
       });// addActionListener
-      bnd2.addActionListener(new ActionListener() {
+      bnd[1].addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
             ta.append("신라면 3500");
          }// actionPerformed
       });// addActionListener
-      bnd3.addActionListener(new ActionListener() {
+      bnd[2].addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
             ta.append("오징어짬뽕 3500");
          }// actionPerformed
       });// addActionListener
-      bnd4.addActionListener(new ActionListener() {
+      bnd[3].addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
             ta.append("튀김우동 3000");
          }// actionPerformed
       });// addActionListener
-      bnd5.addActionListener(new ActionListener() {
+      bnd[4].addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
             ta.append("진라면 3000");
          }// actionPerformed
       });// addActionListener
-      bnd6.addActionListener(new ActionListener() {
+      bnd[5].addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
             ta.append("짜파게티 3500");

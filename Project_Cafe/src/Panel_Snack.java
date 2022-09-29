@@ -21,7 +21,8 @@ public class Panel_Snack extends JPanel{
 	MainTest parent;
 	
 	JFrame f;
-	JButton b1,b2,b3,b4,b5,b6,delbt,calbt,addbt,addbt2,sosbt;
+	JButton b[] = new JButton[6];
+	JButton delbt,calbt,addbt,addbt2,sosbt;
 	JTextArea ta1, taJang;
 	JTextField tf1; 
 	ArrayList<EdibleVo> list = new ArrayList<EdibleVo>();
@@ -45,9 +46,18 @@ public class Panel_Snack extends JPanel{
 		
 		tf1.setPreferredSize(new Dimension(250,200));
 		taJang.setPreferredSize(new Dimension(250,200));
+		tf1.setPreferredSize(new Dimension(250, 200));
+		taJang.setPreferredSize(new Dimension(250, 200));
 		
-		
-		
+		// 메뉴 관련버튼 (이미지 경로)
+		String []img = {"src\\imgs\\s1.PNG","src\\imgs\\s2.PNG","src\\imgs\\s3.PNG",
+				"src\\imgs\\s4.PNG","src\\imgs\\s5.PNG","src\\imgs\\s6.PNG"};
+		String[] tooltip = { "죠리뽕: 3000원", "칸츄리콘: 2500원", "치토스: 3000원", "썬칩: 3000원", "카스타드: 4000원", "허니버터칩: 3500원" };
+		for(int i =0; i < img.length; i++) {
+			b[i] = new JButton(new ImageIcon(img[i]));
+			b[i].setToolTipText(tooltip[i]);
+		}
+
 		addbt = new JButton("장바구니 담기");
 		addbt2 = new JButton("장바구니 취소");
 		sosbt = new JButton("직원호출");
@@ -56,12 +66,6 @@ public class Panel_Snack extends JPanel{
 		
 //		for(int i=0; i<)
 		
-		b1 = new JButton(new ImageIcon("src\\imgs\\s1.png"));
-		b2 = new JButton(new ImageIcon("src\\imgs\\s2.png"));
-		b3 = new JButton(new ImageIcon("src\\imgs\\s3.png"));
-		b4 = new JButton(new ImageIcon("src\\imgs\\s4.png"));
-		b5 = new JButton(new ImageIcon("src\\imgs\\s5.png"));
-		b6 = new JButton(new ImageIcon("src\\imgs\\s6.png"));
 		
 
 		
@@ -96,12 +100,7 @@ public class Panel_Snack extends JPanel{
 		
 			pWest.setLayout(new GridLayout(3,2,10,10));
 			pWest.setPreferredSize(new java.awt.Dimension(500, 600));
-			pWest.add(b1);
-			pWest.add(b2);
-			pWest.add(b3);
-			pWest.add(b4);
-			pWest.add(b5);
-			pWest.add(b6);
+			for(JButton b: b) pWest.add(b);
 			
 			
 		add(pWest, BorderLayout.WEST);
@@ -149,7 +148,7 @@ public class Panel_Snack extends JPanel{
 	}// addLayout()
 	
 	void addProc() {
-		b1.addActionListener(new ActionListener() {
+		b[0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta1.getText().equals(""))
@@ -158,7 +157,7 @@ public class Panel_Snack extends JPanel{
 					ta1.setText("죠리퐁 3000");
 			}// actionPerformed
 		});// addActionListener
-		b2.addActionListener(new ActionListener() {
+		b[1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta1.getText().equals(""))
@@ -167,7 +166,7 @@ public class Panel_Snack extends JPanel{
 					ta1.setText("칸츄리콘 2500");
 			}// actionPerformed
 		});// addActionListener
-		b3.addActionListener(new ActionListener() {
+		b[2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta1.getText().equals(""))
@@ -176,7 +175,7 @@ public class Panel_Snack extends JPanel{
 					ta1.setText("치토스 2500");
 			}// actionPerformed
 		});// addActionListener
-		b4.addActionListener(new ActionListener() {
+		b[3].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta1.getText().equals(""))
@@ -185,7 +184,7 @@ public class Panel_Snack extends JPanel{
 					ta1.setText("썬칩 3300");
 			}// actionPerformed
 		});// addActionListener
-		b5.addActionListener(new ActionListener() {
+		b[4].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta1.getText().equals(""))
@@ -194,7 +193,7 @@ public class Panel_Snack extends JPanel{
 					ta1.setText("카스타드 4000");
 			}// actionPerformed
 		});// addActionListener
-		b6.addActionListener(new ActionListener() {
+		b[5].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ta1.getText().equals(""))
