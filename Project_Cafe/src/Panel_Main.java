@@ -3,6 +3,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -16,9 +17,18 @@ public class Panel_Main extends JPanel{
 		setLayout(new GridLayout(2,2));
 		//making buttons
 		String a[] = { "라면", "분식", "간식", "음료" };
+		
 		for(int i =0; i <bMenu.length; i++) {
 			bMenu[i] = new JButton(a[i]);
 		}//for
+		String []b = {"src\\imgs\\m1.PNG","src\\imgs\\m2.PNG","src\\imgs\\m3.PNG",
+				"src\\imgs\\m4.PNG"};
+		for(int i =0; i < b.length; i++) {
+			bMenu[i] = new JButton(new ImageIcon(b[i]));
+			
+		}
+		
+		
 		addLayout();
 		eventProc();
 	}//Panel_Main
@@ -34,7 +44,6 @@ public class Panel_Main extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				parent.tab.setSelectedIndex(1); 
-				JOptionPane.showMessageDialog(null, "event occurred-0t");
 			}//actionPerformed
 		});//addActionListener
 		bMenu[1].addActionListener(new ActionListener() {
