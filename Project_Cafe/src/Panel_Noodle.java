@@ -6,12 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class Panel_Noodle extends JPanel {
 
@@ -33,7 +28,7 @@ public class Panel_Noodle extends JPanel {
       String []img = {"src\\imgs\\n1.PNG","src\\imgs\\n2.PNG","src\\imgs\\n3.PNG",
             "src\\imgs\\n4.PNG","src\\imgs\\n5.PNG","src\\imgs\\n6.PNG"};	// 이미지 소스의 경로
       String[] tooltip = { "너구리: 3500원", "신라면: 3500원","오징어짬뽕: 3500원", "튀김우동: 3500원", "진라면: 3000원","짜파게티 : 3500원" };   //툴팁 내용
-      for(int i =0; i < img.length; i++) {
+      for(int i =0; i < img.length; i++) {					// 배열로 선언했기 때문에 for문을 사용
          bnd[i] = new JButton(new ImageIcon(img[i]));		// 버튼에 이미지를 배열 순서대로
          bnd[i].setToolTipText(tooltip[i]);					// 버튼에 툴팁내용 배열 순서대로
          bnd[i].setBackground(new Color(255, 255, 255));	// 버튼의 색상을 흰색으로 설정
@@ -96,7 +91,7 @@ public class Panel_Noodle extends JPanel {
 				inputData(); //리스트에 넣는 메서드
 			}// actionPerformed
 		});// addActionListenerAddbt
-		//장바구니에 추가된 것을 한번더 눌러서 취소
+		//장바구니 누른걸 눌러서 취소
 		parent.addbt2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

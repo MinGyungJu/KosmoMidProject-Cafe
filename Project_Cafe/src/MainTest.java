@@ -2,13 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class MainTest extends JFrame{
 	Panel_Main panel_main; 
@@ -57,15 +51,15 @@ public class MainTest extends JFrame{
 		pEast.setPreferredSize(new java.awt.Dimension(300, 450));
 
 		JPanel pEast1 = new JPanel();
-		pEast1.add(tf); // 요청 사항 입력 후, 직원 호출을 눌러주세요
-		pEast1.add(sosbt); // 직원 호출
+			pEast1.add(tf); // 요청 사항 입력 후, 직원 호출을 눌러주세요
+			pEast1.add(sosbt); // 직원 호출
 
 		JPanel pEast2 = new JPanel();
-		pEast2.add(banner1); // 이벤트 배너 삽입
-		pEast2.add(ta); // 주문내역 출력
-		pEast2.add(addbt); // 장바구니 담기
-		pEast2.add(addbt2); // 장바구니 취소
-		pEast2.add(taJang); // 주문내역 출력
+			pEast2.add(banner1); // 이벤트 배너 삽입
+			pEast2.add(ta); // 주문내역 출력
+			pEast2.add(addbt); // 장바구니 담기
+			pEast2.add(addbt2); // 장바구니 취소
+			pEast2.add(taJang); // 주문내역 출력
 		pEast.add(pEast1);
 		pEast.add(pEast2);
 		add(pEast, BorderLayout.EAST);
