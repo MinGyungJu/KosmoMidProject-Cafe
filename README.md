@@ -11,7 +11,10 @@ JTabbedPane을 사용하여 탭(<Panel_names>)그룹을 만들었습니다.<br /
 **Panel_Main.java**
 
 라면, 분식, 간식, 음료 버튼들을 만들고 GridLayout을 사용해 2x2 모양으로 페이지를 만들었습니다. 이 버튼들을 누르면 각 <Panel_names>탭으로 이동합니다.
+ 
+ 
 ![alt text](https://user-images.githubusercontent.com/65105285/193185365-6931d2b6-be3d-4f13-b9d6-3fa62b5da669.png)
+
 ---
 **EdibleVo.java**
 
