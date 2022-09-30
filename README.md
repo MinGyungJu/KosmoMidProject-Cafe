@@ -2,10 +2,11 @@
 kosmo - midterm project (Cafe kiosk)
 
 ---
-**MainTest.java
-JTabbedPane을 사용하여 
-\t탭들을 만듬
-..*Panel_Main.java
+*MainTest.java
+JTabbedPane을 사용하여 탭(panel_names)들을 만듬
+
+
+*Panel_Main.java
 
 
 ---
