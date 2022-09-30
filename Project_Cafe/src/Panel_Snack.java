@@ -156,6 +156,7 @@ public class Panel_Snack extends JPanel{
 		String[] b = a.split(" ");
 
 		for (EdibleVo vo : parent.list)	//Enhanced for문 이용(generics 위에서 써야함)
+			
 			if (b[0].equals(vo.getName())) {
 				parent.list.remove(vo);	// list해당내용 지움
 				break;

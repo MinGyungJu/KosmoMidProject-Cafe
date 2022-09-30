@@ -50,7 +50,7 @@ public class Panel_Drink extends JPanel {
 		setLayout(new BorderLayout());
 		// ------------------------왼쪽패널에 메뉴버튼들 3x2
 		JPanel pWest = new JPanel();
-		pWest.setLayout(new GridLayout(3, 2, 10, 10));
+			pWest.setLayout(new GridLayout(3, 2, 10, 10));
 		pWest.setPreferredSize(new java.awt.Dimension(500, 600));
 		for (JButton b : bnd)
 			pWest.add(b);
