@@ -31,6 +31,8 @@ Panel_Main.java의 list 에 장바구니 추가 버튼이 눌린 객체들을 �
 
 _레이아웃(addLayout):_ <br />  
  왼쪽 패널(pWest)에 메뉴버튼들을 3x2 모양으로 만들고, 아래 패널(pSouth)에 모두 취소, 모두 결제 버튼을 만들었습니다.<br />
+ <br /> 
+ 
 _이벤트 발생시(eventProc):_ <br />  
  *bnd*: <Panel_names>에 있는 메뉴 버튼들이 눌렸을때 MainTest.java의 (장바구니를 위한 text area 함수: ta) ta에 더합니다. <br />
  *addbt*: 장바구니에 띄운 후 <장바구니 추가> 버튼이 눌리면 MainTest.java의 <EdibleVo> list 에 추가합니다. <br />
