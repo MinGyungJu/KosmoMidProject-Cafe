@@ -185,4 +185,8 @@ public class Panel_Snack extends JPanel{
 		parent.ta.setText("");	//초기화
 		parent.list = new ArrayList<EdibleVo>(); 
 	}//cancelAll
+<<<<<<< HEAD
 }//end of Panel_Sanck
+=======
+}//end of Panel_Sanck
+>>>>>>> branch 'main' of https://github.com/jsy4/KosmoMidProject-Cafe.git

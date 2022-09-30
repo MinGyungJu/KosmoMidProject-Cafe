@@ -28,7 +28,7 @@ public class Panel_Noodle extends JPanel {
       String []img = {"src\\imgs\\n1.PNG","src\\imgs\\n2.PNG","src\\imgs\\n3.PNG",
             "src\\imgs\\n4.PNG","src\\imgs\\n5.PNG","src\\imgs\\n6.PNG"};	// 이미지 소스의 경로
       String[] tooltip = { "너구리: 3500원", "신라면: 3500원","오징어짬뽕: 3500원", "튀김우동: 3500원", "진라면: 3000원","짜파게티 : 3500원" };   //툴팁 내용
-      for(int i =0; i < img.length; i++) {					// 배열로 선언했기 때문에 for문을 사용
+      for(int i =0; i < img.length; i++) {
          bnd[i] = new JButton(new ImageIcon(img[i]));		// 버튼에 이미지를 배열 순서대로
          bnd[i].setToolTipText(tooltip[i]);					// 버튼에 툴팁내용 배열 순서대로
          bnd[i].setBackground(new Color(255, 255, 255));	// 버튼의 색상을 흰색으로 설정
