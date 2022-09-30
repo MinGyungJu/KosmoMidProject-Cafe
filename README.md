@@ -11,7 +11,7 @@ JTabbedPane을 사용하여 탭(<Panel_names>)그룹을 만들었습니다.<br /
 **Panel_Main.java**
 
 라면, 분식, 간식, 음료 버튼들을 만들고 GridLayout을 사용해 2x2 모양으로 페이지를 만들었습니다. 이 버튼들을 누르면 각 <Panel_names>탭으로 이동합니다.
-
+![alt text](https://user-images.githubusercontent.com/65105285/193185365-6931d2b6-be3d-4f13-b9d6-3fa62b5da669.png)
 ---
 **EdibleVo.java**
 
@@ -41,3 +41,4 @@ _이벤트 발생시(eventProc):_ <br />
  *bcan*: <모두 취소>를 누르면 모든 값들이 초기화 됩니다.<br />
  *sosbt*: 직원 호출버튼은 (직원 호출을 위한 text field함수: tf)tf에 있는 주문사항을 띄웁니다.<br />
     
+![alt text](https://user-images.githubusercontent.com/65105285/193185360-198ec1ea-38b8-4334-9855-77cccdf182f8.png)
