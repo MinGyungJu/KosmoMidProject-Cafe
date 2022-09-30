@@ -2,14 +2,14 @@
 kosmo - midterm project (Cafe kiosk)
 
 ---
-..*MainTest.java
+**MainTest.java
 JTabbedPane을 사용하여 
 \t탭들을 만듬
 ..*Panel_Main.java
 
 
 ---
-..*EdibleVo.java
+**EdibleVo.java
 
 
 ---
